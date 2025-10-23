@@ -13,3 +13,4 @@ project ("OS_Colloquium_1")
 
 # Включите подпроекты.
 add_subdirectory ("factorial")
+add_subdirectory("dupl_erase")

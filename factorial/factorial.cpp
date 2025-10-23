@@ -1,11 +1,7 @@
-﻿// OS_Colloquium_1.cpp: определяет точку входа для приложения.
-//
-
+﻿
 #include "factorial.h"
 
-using namespace std;
-
-void inputNatural(int& integer, int max = INT_MAX) {
+void inputNatural(int& integer, int max) {
 	while (true) {
 		std::cin >> integer;
 
@@ -23,33 +19,17 @@ void inputNatural(int& integer, int max = INT_MAX) {
 	}
 }
 
-unsigned long long fact(int x) {
+uint64_t fact(int x) {
 	if (x == 0) {
 		return 1;
 	}
 	return fact(x - 1) * x;
 }
 
-std::vector<unsigned long long>& factVector(std::vector<unsigned long long>& factorials) {
+std::vector<uint64_t> factVector(int n) {
+	std::vector<uint64_t> factorials(n + 1);
 	for (int i = 0; i < factorials.size(); i++) {
 		factorials[i] = fact(i);
 	}
 	return factorials;
-}
-int main()
-{
-	int n;
-	const int MAX_POSSIBLE_FACT = 20;
-	cout << "Enter natural < n < " << MAX_POSSIBLE_FACT << ":\n";
-	inputNatural(n, MAX_POSSIBLE_FACT);
-	std::vector<unsigned long long> factorials(n + 1);
-	factVector(factorials);
-
-	for (int i = 0; i < n + 1; i++) {
-		cout << "Factorial " << i << " " << factorials[i] << "\n";
-	}
-	return 0;
-
-
-
 }
