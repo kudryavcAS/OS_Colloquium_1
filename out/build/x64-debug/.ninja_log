@@ -1,0 +1,11 @@
+# ninja log v6
+8	1373	7829143982372954	factorial/CMakeFiles/OS_Colloquium_1.dir/factorial.cpp.obj	aafb9c3e0f47b981
+1375	1742	7829143996044533	factorial/OS_Colloquium_1.exe	182d0ed45bb1c759
+34	1189	7829145165867922	factorial/CMakeFiles/OS_Colloquium_1.dir/factorial.cpp.obj	aafb9c3e0f47b981
+1190	1347	7829145177423604	factorial/OS_Colloquium_1.exe	182d0ed45bb1c759
+37	1294	7829145501369428	factorial/CMakeFiles/OS_Colloquium_1.dir/factorial.cpp.obj	aafb9c3e0f47b981
+1295	1446	7829145513944460	factorial/OS_Colloquium_1.exe	182d0ed45bb1c759
+42	1286	7829149179908079	factorial/CMakeFiles/OS_Colloquium_1.dir/factorial.cpp.obj	aafb9c3e0f47b981
+1287	1443	7829149192432521	factorial/OS_Colloquium_1.exe	182d0ed45bb1c759
+8	1278	7829149685503877	factorial/CMakeFiles/OS_Colloquium_1.dir/factorial.cpp.obj	aafb9c3e0f47b981
+1279	1432	7829149698357315	factorial/OS_Colloquium_1.exe	182d0ed45bb1c759
