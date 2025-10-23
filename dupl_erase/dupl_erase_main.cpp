@@ -6,6 +6,7 @@ int main() {
 	std::cout << "Enter the size of array:\n";
 	inputNatural(n);
 
+	//доделать ввод
 	std::vector<int> array(n);
 	std::cout << "Enter the array:\n";
 	for (int i = 0; i < n; i++) {
