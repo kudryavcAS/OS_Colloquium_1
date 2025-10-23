@@ -3,7 +3,7 @@
 #
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (list_reverse "list_reverse.cpp" "list_reverse.h" "list_reverse_main.cpp")
+add_executable (list_reverse  "list_reverse.h" "list_reverse_main.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET list_reverse PROPERTY CXX_STANDARD 20)
