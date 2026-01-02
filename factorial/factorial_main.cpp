@@ -1,18 +1,24 @@
-// factmain.cpp: определяет точку входа для приложения.
-//
+#include <iostream>
+#include <vector>
 #include "factorial.h"
 
-int main()
-{
-	int n;
-	const int MAX_POSSIBLE_FACT = 20;
-	std::cout << "Enter natural < n < " << MAX_POSSIBLE_FACT << ":\n";
-	inputNatural(n, MAX_POSSIBLE_FACT);
-	std::vector<uint64_t> factorials = factVector(n);
+int main() {
+    int n;
+    std::cout << "Enter n (1-" << MAX_FACTORIAL_ARG << "): ";
+    inputNatural(n, MAX_FACTORIAL_ARG);
 
-	for (int i = 0; i < n + 1; i++) {
-		std::cout << "Factorial " << i << " " << factorials[i] << "\n";
-	}
-	return 0;
+    try {
+        std::vector<uint64_t> result = getFactorialsSequence(n);
 
+        std::cout << "First " << n << " factorials:\n";
+        for (size_t i = 0; i < result.size(); ++i) {
+            std::cout << (i + 1) << "! = " << result[i] << "\n";
+        }
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+        return 1;
+    }
+
+    return 0;
 }

@@ -1,35 +1,56 @@
-﻿
-#include "factorial.h"
+﻿#include "factorial.h"
+#include <iostream>
+#include <limits>
+#include <stdexcept>
 
 void inputNatural(int& integer, int max) {
-	while (true) {
-		std::cin >> integer;
-
-		if (std::cin.fail()) {
-			std::cin.clear();
-			std::cin.ignore(INT_MAX, '\n');
-			std::cout << "Invalid input. Enter an integer 0 < " << max << "\n";
-			continue;
-		}
-		if (integer <= 0 || integer > max) {
-			std::cout << "Invalid input. Enter an integer 0 < " << max << "\n";
-			continue;
-		}
-		break;
-	}
+    while (true) {
+        if (std::cin >> integer) {
+            if (integer > 0 && integer <= max) {
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                break;
+            }
+            std::cout << "Input out of range (1 - " << max << "). Retry: ";
+        }
+        else {
+            std::cout << "Invalid input. Retry: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
 }
 
-uint64_t fact(int x) {
-	if (x == 0) {
-		return 1;
-	}
-	return fact(x - 1) * x;
+uint64_t factorial(int n) {
+    if (n < 0) {
+        throw std::invalid_argument("Argument cannot be negative.");
+    }
+    if (n > MAX_FACTORIAL_ARG) {
+        throw std::overflow_error("Result exceeds uint64_t capacity.");
+    }
+
+    uint64_t result = 1;
+    for (int i = 2; i <= n; ++i) {
+        result *= i;
+    }
+    return result;
 }
 
-std::vector<uint64_t> factVector(int n) {
-	std::vector<uint64_t> factorials(n + 1);
-	for (int i = 0; i < factorials.size(); i++) {
-		factorials[i] = fact(i);
-	}
-	return factorials;
+std::vector<uint64_t> getFactorialsSequence(int n) {
+    if (n < 0) {
+        throw std::invalid_argument("Sequence length cannot be negative.");
+    }
+    if (n > MAX_FACTORIAL_ARG) {
+        throw std::overflow_error("Sequence calculation exceeds uint64_t capacity.");
+    }
+    if (n == 0) {
+        return {};
+    }
+
+    std::vector<uint64_t> results(n, 1);
+
+    for (int i = 1; i < n; ++i) {
+        results[i] = results[i - 1] * (i + 1);
+    }
+
+    return results;
 }
