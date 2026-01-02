@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
 #include "factorial.h"
+#include "utils.h"
 
 int main() {
     int n;
     std::cout << "Enter n (1-" << MAX_FACTORIAL_ARG << "): ";
-    inputNatural(n, MAX_FACTORIAL_ARG);
+    utils::inputNatural(n, MAX_FACTORIAL_ARG);
 
     try {
         std::vector<uint64_t> result = getFactorialsSequence(n);

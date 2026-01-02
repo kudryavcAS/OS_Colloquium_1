@@ -1,24 +1,5 @@
 ﻿#include "factorial.h"
-#include <iostream>
-#include <limits>
 #include <stdexcept>
-
-void inputNatural(int& integer, int max) {
-    while (true) {
-        if (std::cin >> integer) {
-            if (integer > 0 && integer <= max) {
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                break;
-            }
-            std::cout << "Input out of range (1 - " << max << "). Retry: ";
-        }
-        else {
-            std::cout << "Invalid input. Retry: ";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
-    }
-}
 
 uint64_t factorial(int n) {
     if (n < 0) {
