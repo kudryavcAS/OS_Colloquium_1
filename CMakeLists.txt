@@ -16,6 +16,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 include(GoogleTest)
 
+add_subdirectory("utils") 
 add_subdirectory ("factorial")
 add_subdirectory ("dupl_erase")
 add_subdirectory ("list_reverse")
